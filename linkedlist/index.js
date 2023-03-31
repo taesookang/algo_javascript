@@ -122,13 +122,28 @@ class LinkedList {
     }
 
     const prevNode = this.getAt(index - 1);
-    if(!prevNode || !prevNode.next) {
-        return;
+    if (!prevNode || !prevNode.next) {
+      return;
     }
 
-    prevNode.next = prevNode.next.next
+    prevNode.next = prevNode.next.next;
+  }
 
+  insertAt(data, index) {
+    const newNode = new Node(data);
+    if (index === 0) {
+      if (this.head) {
+        newNode.next = this.head;
+      }
+
+      this.head = newNode;
+      return;
+    }
+
+    const frontNode = this.getAt(index - 1) || this.getLast();
     
+    newNode.next = frontNode.next;
+    frontNode.next = newNode;
   }
 }
 
