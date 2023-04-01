@@ -154,11 +154,11 @@ class LinkedList {
     }
   }
 
-  *[Symbol.iterator] () {
+  *[Symbol.iterator]() {
     let node = this.head;
-    while(node) {
+    while (node) {
       yield node;
-      node = node.next
+      node = node.next;
     }
   }
 }
