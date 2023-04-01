@@ -141,9 +141,25 @@ class LinkedList {
     }
 
     const frontNode = this.getAt(index - 1) || this.getLast();
-    
+
     newNode.next = frontNode.next;
     frontNode.next = newNode;
+  }
+
+  forEach(fn) {
+    let node = this.head;
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
+  }
+
+  *[Symbol.iterator] () {
+    let node = this.head;
+    while(node) {
+      yield node;
+      node = node.next
+    }
   }
 }
 
