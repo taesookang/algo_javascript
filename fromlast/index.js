@@ -11,6 +11,23 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+    let slow = list.head;
+    let fast = list.head;
+
+    // Place fast 3 nodes forward 
+    while(n > 0) {
+        fast = fast.next;
+        n--
+    }
+
+    // Move both slow and fast by 1 node until fast riches to the tail
+    while(fast.next) {
+        slow = slow.next
+        fast = fast.next;
+    }
+    // return slow
+    return slow
+}
 
 module.exports = fromLast;
