@@ -33,7 +33,7 @@ class Tree {
   traverseBF(fn) {
     const arr = [this.root];
 
-    while (arr.length) {
+    while (arr) {
       const node = arr.shift();
 
       arr.push(...node.children);
